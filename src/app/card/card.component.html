@@ -1,15 +1,16 @@
 <div class='address-card'>
     
-    <h1>{{user.name}}</h1>
-    <h3 class='title'>{{user.title}}</h3>
-        <div *ngIf="!isColapsed">
-            <p>{{user.address}},</p>
-            <div *ngIf= 'user.phone.length > 0'>
-                <p>Phone:</p>
-                <p *ngFor="let item of user.phone">{{item}}</p>
-            </div>
-        </div>
-        
+  <h1>{{user.name}}</h1>
+  <p class='title'>{{user.title}}</p>
+  <button (click) = 'toggleCollapsed()'>{{buttonName}}</button>
+  <div *ngIf = '!isCollapsed'>
+    <p>{{user.address}}</p>
+    <div *ngIf='user.phone.length > 0'>
+      <p>Phone</p>
+      <div *ngFor='let item of user.phone'>
+        <p>{{item}}</p>
+      </div>
     </div>
-    
+  </div>
+  
 </div>

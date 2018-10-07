@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from './user.model'
+import { User } from './user.model';
 
 @Component({
   selector: 'app-card',
@@ -8,21 +8,20 @@ import { User } from './user.model'
 })
 export class CardComponent implements OnInit {
 
-  user: any;
-  @Input('user') userObj: User;
-  isColapsed: boolean = true;
-  
-  constructor() { 
-    
+  @Input('user') user: User;
+  isCollapsed: boolean = true;
+  collapseButtonNames: string[] = ['Expand', 'Collapse'];
+  buttonName: string = 'Expand';
+
+  constructor() { }
+
+  toggleCollapsed() {
+    this.isCollapsed = !this.isCollapsed;
+    this.buttonName = this.collapseButtonNames[this.isCollapsed ? 0 : 1]
+
   }
 
   ngOnInit() {
-    this.user = {
-      name: this.userObj.name,
-      title: this.userObj.title,
-      address: this.userObj.address,
-      phone:this.userObj.phone
-  };
   }
 
 }
